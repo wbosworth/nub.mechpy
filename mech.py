@@ -7,6 +7,7 @@ settings = {
     }
 
 from sympy import *
+from math import *
 
 import re
 import inspect
@@ -53,7 +54,7 @@ def parseVariables(varDefs):
 # Function: defineVariables returns a dictionary mapping variables to their values
 # Inputs:
 # Outputs:
-# Notes:
+# Notes:  
 def defineVariables(givenVars, values):
     logging.debug('Defining', str(givenVars), 'as', str(values))
     varDict = {}
@@ -64,6 +65,24 @@ def defineVariables(givenVars, values):
 #        logging.debug('Mapped', str(var), 'to', str(value))
 
     return varDict
+
+
+
+# Function: convert does some unit converting
+# Inputs: intial numerical value, unit 1 name, and unit 2 name
+# Outputs:
+# Notes: current implementation is teh sex0r. probably needs a library/switchboard that's an external file. i don't know how to do that. 
+def convert(value, unit_1, unit_2):
+    if unit_1 == 'psi':
+        if unit_2 == 'Pa':
+           convertedValue = value * 6.8*10**3;
+           return convertedValue
+    else:
+        return 'no dice'
+
+    
+
+
 
 # Function:
 # Inputs:
